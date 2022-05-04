@@ -1,6 +1,6 @@
 package patterns.abstractFactory.abstractfactory.adminpage;
 
-import org.working3.abstractfactory.general.Footer;
+import patterns.abstractFactory.abstractfactory.general.Footer;
 
 public class AdminFooter implements Footer {
 

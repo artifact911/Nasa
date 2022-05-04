@@ -1,9 +1,9 @@
 package patterns.abstractFactory.abstractfactory.assistant;
 
-import org.working3.abstractfactory.general.Footer;
-import org.working3.abstractfactory.general.NavBar;
-import org.working3.abstractfactory.general.PageFactory;
-import org.working3.abstractfactory.general.Table;
+import patterns.abstractFactory.abstractfactory.general.Footer;
+import patterns.abstractFactory.abstractfactory.general.NavBar;
+import patterns.abstractFactory.abstractfactory.general.PageFactory;
+import patterns.abstractFactory.abstractfactory.general.Table;
 
 public class AssistantPageFactory implements PageFactory {
 

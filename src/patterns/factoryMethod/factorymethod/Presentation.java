@@ -1,9 +1,9 @@
 package patterns.factoryMethod.factorymethod;
 
-import org.working3.factorymethod.factories.LoginPageFactory;
-import org.working3.factorymethod.factories.MainPageFactory;
-import org.working3.factorymethod.factories.OrderPageFactory;
-import org.working3.factorymethod.factories.PageFactory;
+import patterns.factoryMethod.factorymethod.factories.LoginPageFactory;
+import patterns.factoryMethod.factorymethod.factories.MainPageFactory;
+import patterns.factoryMethod.factorymethod.factories.OrderPageFactory;
+import patterns.factoryMethod.factorymethod.factories.PageFactory;
 
 public class Presentation {
     public static void main(String[] args) {

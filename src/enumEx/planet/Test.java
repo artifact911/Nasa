@@ -1,6 +1,7 @@
 package enumEx.planet;
 
-import enums.Day;
+
+import enumEx.Day;
 
 public class Test {
     public static void main(String[] args) {

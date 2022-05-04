@@ -1,17 +1,11 @@
 package practice.step.homework.test;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import ua.step.homework.Task02;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertEquals;
-
+//TODO need to check
 public class TestTask02 {
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+   /* private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
     @Before
@@ -54,5 +48,5 @@ public class TestTask02 {
     public void test4() {
         Task02.main(new String[]{"101"});
         assertEquals("2", outContent.toString());
-    }
+    }*/
 }

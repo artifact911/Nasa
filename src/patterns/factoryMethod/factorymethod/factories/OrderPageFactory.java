@@ -1,7 +1,7 @@
 package patterns.factoryMethod.factorymethod.factories;
 
-import org.working3.factorymethod.pages.OrderPage;
-import org.working3.factorymethod.pages.Page;
+import patterns.factoryMethod.factorymethod.pages.OrderPage;
+import patterns.factoryMethod.factorymethod.pages.Page;
 
 public class OrderPageFactory implements PageFactory {
 

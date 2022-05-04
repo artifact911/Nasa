@@ -1,6 +1,7 @@
 package patterns.abstractFactory.abstractfactory.userpage;
 
-import org.working3.abstractfactory.general.Footer;
+
+import patterns.abstractFactory.abstractfactory.general.Footer;
 
 public class UserFooter implements Footer {
 

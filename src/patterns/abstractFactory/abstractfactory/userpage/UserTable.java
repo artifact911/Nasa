@@ -1,6 +1,6 @@
 package patterns.abstractFactory.abstractfactory.userpage;
 
-import org.working3.abstractfactory.general.Table;
+import patterns.abstractFactory.abstractfactory.general.Table;
 
 public class UserTable implements Table {
 

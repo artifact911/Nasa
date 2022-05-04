@@ -1,6 +1,6 @@
 package patterns.abstractFactory.abstractfactory.assistant;
 
-import org.working3.abstractfactory.general.Table;
+import patterns.abstractFactory.abstractfactory.general.Table;
 
 public class AssistantTable implements Table {
 

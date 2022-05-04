@@ -1,6 +1,7 @@
 package patterns.abstractFactory.abstractfactory.adminpage;
 
-import org.working3.abstractfactory.general.Table;
+
+import patterns.abstractFactory.abstractfactory.general.Table;
 
 public class AdminTable implements Table {
 

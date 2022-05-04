@@ -1,6 +1,6 @@
 package patterns.abstractFactory.abstractfactory.assistant;
 
-import org.working3.abstractfactory.general.NavBar;
+import patterns.abstractFactory.abstractfactory.general.NavBar;
 
 public class AssistantNavBar implements NavBar {
 

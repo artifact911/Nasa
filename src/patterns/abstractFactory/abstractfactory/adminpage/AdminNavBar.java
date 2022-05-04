@@ -1,6 +1,7 @@
 package patterns.abstractFactory.abstractfactory.adminpage;
 
-import org.working3.abstractfactory.general.NavBar;
+
+import patterns.abstractFactory.abstractfactory.general.NavBar;
 
 public class AdminNavBar implements NavBar {
 

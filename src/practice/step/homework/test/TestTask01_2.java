@@ -6,6 +6,7 @@ import practice.step.homework.Task01_2;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+//TODO need to check
 public class TestTask01_2 {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();

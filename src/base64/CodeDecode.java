@@ -2,6 +2,7 @@ package base64;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Base64;
 
 public class CodeDecode {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
@@ -61,5 +62,9 @@ public class CodeDecode {
             oos.close();
             baos.close();
         }
+    }
+
+    public String getBasicToken() {
+        return Base64.getEncoder().encodeToString(("smtn1 "+ ":" + "smtn1 ").getBytes());
     }
 }

@@ -1,9 +1,10 @@
 package patterns.abstractFactory.abstractfactory;
 
-import org.working3.abstractfactory.adminpage.AdminPageFactory;
-import org.working3.abstractfactory.assistant.AssistantPageFactory;
-import org.working3.abstractfactory.general.PageFactory;
-import org.working3.abstractfactory.userpage.UserPageFactory;
+
+import patterns.abstractFactory.abstractfactory.adminpage.AdminPageFactory;
+import patterns.abstractFactory.abstractfactory.assistant.AssistantPageFactory;
+import patterns.abstractFactory.abstractfactory.general.PageFactory;
+import patterns.abstractFactory.abstractfactory.userpage.UserPageFactory;
 
 public class Presentation {
     public static void main(String[] args) {
