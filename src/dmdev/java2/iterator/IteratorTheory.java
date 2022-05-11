@@ -12,18 +12,21 @@ public class IteratorTheory {
 
         //only for read!!!
         for (Integer val : list) {
-//            System.out.println(val);
+            System.out.print(val);
         }
+        System.out.println();
 
         //how does it work?
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+          System.out.print(iterator.next());
         }
+        System.out.println();
 
         for (Iterator<Integer> iterator2 = list.iterator(); iterator2.hasNext();) {
-            System.out.println(iterator2.next());
+            System.out.print(iterator2.next());
         }
+        System.out.println();
 
         for (Iterator<Integer> iterator3 = list2.iterator(); iterator3.hasNext();) {
             Integer next = iterator3.next();
