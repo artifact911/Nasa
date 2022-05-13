@@ -12,7 +12,6 @@ public class CollectionSortExample {
         Collections.sort(strings);
         System.out.println(strings);
 
-
         List<Person> personList = Arrays.asList(
                 new Person(1, "Ivan", "YIvanov"),
                 new Person(3, "Petr", "XPetrov"),
@@ -32,8 +31,5 @@ public class CollectionSortExample {
         System.out.println(personList);
         personList.sort(Comparator.comparing(Person::getLastName).thenComparing(Person::getFirstName));
         System.out.println(personList);
-
-
     }
-
 }
