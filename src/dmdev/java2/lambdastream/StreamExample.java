@@ -1,12 +1,12 @@
-package dmdev.java2.lambda;
+package dmdev.java2.lambdastream;
 
-import java.util.Collections;
 import java.util.List;
 
 public class StreamExample {
 
     public static void main(String[] args) {
         List<String> strings = List.of("88", "11", "22", "33", "44", "55", "66");
+
        /* for (String string : strings) {
             String value = string + string;
             Integer intValue = Integer.valueOf(value);
@@ -17,7 +17,7 @@ public class StreamExample {
 
         // перепишем через Stream
         strings.stream()
-                .map((val) -> val + val)
+                .map((val) -> val + val) // если елемент один, скобки можно первого (val) можно опускать
 //                .map(val -> Integer.valueOf(val))
         // заменим на лямбду
                 .map(Integer::valueOf)
