@@ -1,4 +1,4 @@
-package dmdev.java2.lambdastream;
+package dmdev.java2.lambdastream.stream;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package dmdev.java2.optionalex;
+package dmdev.java2.lambdastream.optionalex;
 
 import dmdev.java2.lambdastream.Student;
 
