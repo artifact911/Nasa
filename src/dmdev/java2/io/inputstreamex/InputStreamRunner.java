@@ -1,4 +1,4 @@
-package dmdev.java2.io.iorunner;
+package dmdev.java2.io.inputstreamex;
 
 import java.io.File;
 import java.io.FileInputStream;
