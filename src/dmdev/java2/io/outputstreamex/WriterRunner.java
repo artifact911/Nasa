@@ -19,5 +19,4 @@ public class WriterRunner {
             fileWriter.append("Java");
         }
     }
-
 }
