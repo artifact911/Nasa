@@ -1,4 +1,4 @@
-package dmdev.java2.lambdastream.lambda;
+package dmdev.java2.lambda.stream.lambda;
 
 import java.util.Comparator;
 

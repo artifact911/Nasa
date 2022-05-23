@@ -1,6 +1,6 @@
-package dmdev.java2.lambdastream.stream;
+package dmdev.java2.lambda.stream.stream;
 
-import dmdev.java2.lambdastream.Student;
+import dmdev.java2.lambda.stream.Student;
 
 import java.util.stream.Stream;
 

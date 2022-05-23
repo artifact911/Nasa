@@ -1,4 +1,4 @@
-package dmdev.java2.lambdastream.practice;
+package dmdev.java2.lambda.stream.practice;
 
 import java.util.List;
 import java.util.OptionalDouble;

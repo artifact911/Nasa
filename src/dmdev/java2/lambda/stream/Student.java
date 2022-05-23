@@ -1,4 +1,4 @@
-package dmdev.java2.lambdastream;
+package dmdev.java2.lambda.stream;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package dmdev.java2.serialdeserial;
+package dmdev.java2.serial.deserial;
 
 import java.io.Serial;
 import java.io.Serializable;

@@ -1,6 +1,6 @@
-package dmdev.java2.lambdastream.optionalex;
+package dmdev.java2.lambda.stream.optionalex;
 
-import dmdev.java2.lambdastream.Student;
+import dmdev.java2.lambda.stream.Student;
 
 import java.util.Optional;
 import java.util.stream.Stream;
