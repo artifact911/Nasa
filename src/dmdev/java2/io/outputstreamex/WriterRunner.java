@@ -17,7 +17,6 @@ public class WriterRunner {
             fileWriter.append("Hello World!");
             fileWriter.newLine();
             fileWriter.append("Java");
-
         }
     }
 
