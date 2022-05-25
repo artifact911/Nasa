@@ -1,0 +1,16 @@
+1. Создать класс Counter с одним полем:
+    private int count;
+
+    Добавить методы:
+    - getCount();
+    - increment() - count++;
+    - decrement() - count--;
+
+2. Создать класс CounterThread c одним полем и конструктором:
+    private Counter counter;
+
+    В методе run этого класса в цикле 100 раз вызвать counter.increment();
+
+3. В методе main создать 4 потока типа CounterThread, передав один и тот же объект Counter и запустить их,
+    дождаться выполнения и вывести на консоль значение нашего счетчика:
+    counter.getCount();
