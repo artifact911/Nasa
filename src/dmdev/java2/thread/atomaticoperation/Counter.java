@@ -11,12 +11,24 @@ package dmdev.java2.thread.atomaticoperation;
  */
 
 public class Counter {
+
+    private static String description;
     private int count;
 
+    public static void init() {
+        synchronized (Counter.class) {
+            if(description == null) {
+                description = "Test description";
+            }
+        }
+     }
+
     public void increment() {
-        count++;
+        synchronized(this) {
+            count++;
+        }
     }
-    public void decrement() {
+    public synchronized void decrement() {
         count--;
     }
 
