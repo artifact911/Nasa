@@ -14,7 +14,7 @@ public class ExampleRunner {
         System.out.println(example.getList());
 
         // перепишем класс example и сделаем поле неизменяемым
-        // стал падать ошибка
+        // стала падать ошибка
         // перепишем иначе
     }
 }
