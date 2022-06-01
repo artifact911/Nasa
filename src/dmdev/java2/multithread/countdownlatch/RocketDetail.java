@@ -1,4 +1,4 @@
-package dmdev.java2.multithread.latch;
+package dmdev.java2.multithread.countdownlatch;
 
 public enum RocketDetail {
     PART1,

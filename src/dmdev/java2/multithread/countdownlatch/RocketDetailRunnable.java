@@ -1,4 +1,4 @@
-package dmdev.java2.multithread.latch;
+package dmdev.java2.multithread.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 
