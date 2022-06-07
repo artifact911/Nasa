@@ -1,4 +1,4 @@
-package dmdev.java2.multithread.saftycollection.queue;
+package dmdev.java2.multithread.concurrent.queue;
 
 public class CashBox {
 

@@ -1,4 +1,4 @@
-package dmdev.java2.multithread.semaphore;
+package dmdev.java2.multithread.concurrent.semaphore;
 
 public class CashBox {
 

@@ -1,16 +1,15 @@
-package dmdev.java2.multithread.semaphore;
+package dmdev.java2.multithread.concurrent.queue;
 
 
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Semaphore;
 import java.util.stream.Stream;
 
 public class CashBoxRunner {
 
     public static void main(String[] args) throws InterruptedException {
-        Semaphore cashBoxes = new Semaphore(2);
+        BlockingQueue<CashBox> cashBoxes = new ArrayBlockingQueue<>(2, true, List.of(new CashBox(), new CashBox()));
 
         List<Thread> threads = Stream.of(
                                              new BuyerThread(cashBoxes),

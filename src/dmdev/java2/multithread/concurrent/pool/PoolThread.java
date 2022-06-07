@@ -1,4 +1,4 @@
-package dmdev.java2.multithread.pool;
+package dmdev.java2.multithread.concurrent.pool;
 
 import java.util.Optional;
 import java.util.Queue;

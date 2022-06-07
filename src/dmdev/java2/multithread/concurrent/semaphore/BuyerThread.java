@@ -1,6 +1,5 @@
-package dmdev.java2.multithread.semaphore;
+package dmdev.java2.multithread.concurrent.semaphore;
 
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Semaphore;
 
 public class BuyerThread implements Runnable {

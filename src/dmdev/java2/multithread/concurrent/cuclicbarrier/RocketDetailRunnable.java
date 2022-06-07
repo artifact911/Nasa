@@ -1,4 +1,4 @@
-package dmdev.java2.multithread.cuclicbarrier;
+package dmdev.java2.multithread.concurrent.cuclicbarrier;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
