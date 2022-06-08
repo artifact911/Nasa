@@ -15,7 +15,8 @@ public class PatternFindExample {
 //        String regex = "(\\+375)? ?\\((?<code>\\d{2})\\) ?\\d{3}-\\d{2}-\\2"; // группе присвоили имя
         String regex = "(?:\\+375)? ?\\((?<code>\\d{2})\\) ?\\d{3}-\\d{2}-\\1"; // исключили группу из списка
 
-        Pattern pattern = Pattern.compile(regex); Matcher matcher = pattern.matcher(phoneNumber);
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phoneNumber);
 
         while (matcher.find()) {
 //            System.out.println(matcher.group());
