@@ -2,13 +2,18 @@ package dmdev.java2.reflectionapi.model;
 
 import java.io.Serializable;
 
+
 public class User extends Person implements Serializable, Comparable<User> {
 
     private String name;
 
-    public User(Long id, String name) {
+    @MinAge(age = 21)
+    private int age;
+
+    public User(Long id, String name, int age) {
         super(id);
         this.name = name;
+        this.age = age;
     }
 
     @Override

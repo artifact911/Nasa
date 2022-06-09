@@ -17,7 +17,7 @@ public class ReflectionApiExample {
 
 //        testConstructor();
 
-        User user = new User(25L, "Ivan");
+        User user = new User(25L, "Ivan", 24);
 //        testFields(user);
 
         testMethods(user);
