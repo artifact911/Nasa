@@ -1,6 +1,6 @@
-package multithread.vzuev.lesson_03;
+package multithread.vzuev.lessons;
 
-public class Runner_5 {
+public class Runner_8 {
 
     private static final String MSG_TEMPLATE_THREAD_STATE = "%s : %s\n";
 
@@ -52,7 +52,7 @@ public class Runner_5 {
         });
 
         // 2 запустили новый поток - thread
-        // с этого момента работает 2 потока
+        // с этого момента работает 2 потока - thread и main
         thread.start();
         // 2.1 тут видно, что main : RUNNABLE
         showThreadState(mainThread);
@@ -97,11 +97,14 @@ public class Runner_5 {
 
     private static void threadTerminated() throws InterruptedException {
         final Thread thread = new Thread(() -> {
+
             showThreadState(Thread.currentThread());
 
             // раскомменти эту строку и закомменти верхнюю и увидишь, как исключение прибивает поток
             // Нужно обратить внимание: что если исключение убъет какой-то поток, другие
-            // продолжат работать! - в результате мы увидим в консоле выполение потока main - Thread-0 : TERMINATED
+            // продолжат работать! - в результате мы увидим в консоле выполение потока main - он
+            // напечатает состояние потока Thread-0 : TERMINATED
+
 //            throw new RuntimeException();
         });
         thread.start();

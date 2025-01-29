@@ -1,11 +1,19 @@
-package multithread.vzuev.lesson_03;
+package multithread.vzuev.lessons;
 
 import java.util.stream.IntStream;
 
 /**
  * Методы sleep() и join()
+ *
+ * Задача:
+ * просуммировать в потоке-1 числа от 1 до 500, а в потоке-2 от 501 до 1000
+ * Затем в потоке main сложить результаты двух потоков
+ *
+ * поток-1 когда посчитает выводит сумму и имя своего потока
+ * поток-2 когда посчитает выводит сумму и имя своего потока
+ * поток-main складывает результаты потоков и выводи сумму и свое имя в принт
  */
-public class Runner_4 {
+public class Runner_7 {
 
     public static final int FROM_NUMBER_FIRST_THREAD = 1;
     public static final int TO_NUMBER_FIRST_THREAD = 500;
@@ -23,6 +31,14 @@ public class Runner_4 {
     }
 
     // Без sleep() и без join()
+    // на экране что-то вроде
+    //main : 0
+    //Thread-0 : 125250
+    //Thread-1 : 375250
+    // main не ждал результатов выполнения потоков и посчитал сразу их результаты, которые не успели
+    // сформироваться и остались - 0. Таким образом main первый вывел результат и свое имя
+    // Другие потоки не имеет значения в каком порядке вывелись. Главное, что результата сложения
+    // результатов двух потоков нет
     private static void method_1() {
         final TaskSummingNumbers firstTask = startSubTask(FROM_NUMBER_FIRST_THREAD, TO_NUMBER_FIRST_THREAD);
         final TaskSummingNumbers secondTask = startSubTask(FROM_NUMBER_SECOND_THREAD, TO_NUMBER_SECOND_THREAD);
@@ -30,7 +46,7 @@ public class Runner_4 {
         printThreadNameAndNumber(resultNumber);
     }
 
-    // Поставили слиппер на 1 секунду
+    // Поставили слиппер на 1 секунду в надежде, что потоки успеют постчитать свое и тогда main это подхватит
     private static void method_2() throws InterruptedException {
         final TaskSummingNumbers firstTask = startSubTask(FROM_NUMBER_FIRST_THREAD, TO_NUMBER_FIRST_THREAD);
         final TaskSummingNumbers secondTask = startSubTask(FROM_NUMBER_SECOND_THREAD, TO_NUMBER_SECOND_THREAD);
