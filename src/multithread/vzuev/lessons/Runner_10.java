@@ -9,11 +9,25 @@ public class Runner_10 {
     public static void main(String[] args) throws InterruptedException {
 //        task1();
 
+        task2();
 
     }
 
+    // Создадим потоки с разными приоритетами и посмотрим, какой будет отрабатывать раньше
+    // Ожидаем, что поток с высшим приоритетом отработает раньше
+    // но так не случилось, т.к. это все зависит от ОС или еще от чего-то может завистеть
+    // поэтому не следует вообще пытаться манипулировать приоритетами и юзать приоритет по умолчанию
     private static void task2() {
 
+        // неявно стартанул поток main с дефотным приоритетом - 5
+
+        // создали поток и установили ему максимальный приоритет
+        final Thread thread = new Thread(new Task());
+        thread.setPriority(Thread.MAX_PRIORITY);
+        thread.start();
+
+        // тут мы выводим сообщение, когда закончится поток main, у которго дефолтный приоритет - 5
+        System.out.println("Main thread finished");
     }
 
     private static void task1() {
