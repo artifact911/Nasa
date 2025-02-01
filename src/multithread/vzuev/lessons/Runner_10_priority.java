@@ -2,7 +2,7 @@ package multithread.vzuev.lessons;
 
 import java.util.stream.IntStream;
 
-public class Runner_10 {
+public class Runner_10_priority {
 
     private static final String MSG_TEMPLATE_THREAD_NAME = "%s : %d\n";
 

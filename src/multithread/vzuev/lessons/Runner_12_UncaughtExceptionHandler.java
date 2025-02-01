@@ -1,6 +1,6 @@
 package multithread.vzuev.lessons;
 
-public class Runner_12 {
+public class Runner_12_UncaughtExceptionHandler {
 
     private static final String MSG_EXCEPTION_TEMPLATE = "Exception was thrown with message '%s' in thread '%s'\n";
 

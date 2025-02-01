@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
  * поток-2 когда посчитает выводит сумму и имя своего потока
  * поток-main складывает результаты потоков и выводи сумму и свое имя в принт
  */
-public class Runner_7 {
+public class Runner_7_sleep_and_join_methods {
 
     public static final int FROM_NUMBER_FIRST_THREAD = 1;
     public static final int TO_NUMBER_FIRST_THREAD = 500;

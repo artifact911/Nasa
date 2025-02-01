@@ -2,7 +2,7 @@ package multithread.vzuev.lessons;
 
 import java.util.concurrent.TimeUnit;
 
-public class Runner_9 {
+public class Runner_9_thread_stop {
 
     private static final String REQ_WAS_SENT = "\nRequest was sent";
     private static final int DURATION_OF_SECONDS_DELIVERING_RESPONSE = 1;

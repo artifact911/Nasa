@@ -2,7 +2,7 @@ package multithread.vzuev.lessons;
 
 import java.util.concurrent.TimeUnit;
 
-public class Runner_11 {
+public class Runner_11_demon_threads {
 
     public static void main(String[] args) throws InterruptedException {
 

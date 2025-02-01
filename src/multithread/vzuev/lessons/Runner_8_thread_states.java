@@ -1,6 +1,6 @@
 package multithread.vzuev.lessons;
 
-public class Runner_8 {
+public class Runner_8_thread_states {
 
     private static final String MSG_TEMPLATE_THREAD_STATE = "%s : %s\n";
 
