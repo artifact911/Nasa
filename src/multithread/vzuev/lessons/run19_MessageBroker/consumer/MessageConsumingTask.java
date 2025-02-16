@@ -1,0 +1,46 @@
+package multithread.vzuev.lessons.run19_MessageBroker.consumer;
+
+
+import multithread.vzuev.lessons.run19_MessageBroker.broker.MessageBroker;
+import multithread.vzuev.lessons.run19_MessageBroker.model.Message;
+
+import java.util.Optional;
+import java.util.concurrent.TimeUnit;
+
+public final class MessageConsumingTask implements Runnable {
+
+    private static final int SECONDS_DURATION_OF_SLEEP_BEFORE_CONSUMING = 1;
+
+    private final MessageBroker messageBroker;
+    private final int minimalAmountMessagesToConsume;
+    private final String name;
+
+    public MessageConsumingTask(MessageBroker messageBroker,
+                                int minimalAmountMessagesToConsume,
+                                String name) {
+        this.messageBroker = messageBroker;
+        this.minimalAmountMessagesToConsume = minimalAmountMessagesToConsume;
+        this.name = name;
+    }
+
+    public int getMinimalAmountMessagesToConsume() {
+        return minimalAmountMessagesToConsume;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void run() {
+        try {
+            while (!Thread.currentThread().isInterrupted()) {
+                TimeUnit.SECONDS.sleep(SECONDS_DURATION_OF_SLEEP_BEFORE_CONSUMING);
+                Optional<Message> consumed = messageBroker.consume(this);
+                consumed.orElseThrow(MessageConsumingException::new);
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+}
