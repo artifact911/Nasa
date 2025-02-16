@@ -15,6 +15,7 @@
 11. [Введение в синхронизацию](#sync_started)
 12. [Пример состояния гонок, атоманрные операции](#run_tread_example)
 13. [Synchronized. Monitor. Синхронизированные блоки](#sync_monitor)
+14. [Wait. Notify](#wait_notify)
 
 
 ### <p id='process_and_thread'>1. Процесс и поток</p>
@@ -270,3 +271,100 @@ Monitor - каждый объект в java обладает монитором.
 
 НЕстатический синхронизированный метод синхронизируется по объекту this
 ![17_synchronizedMethod.png](17_synchronizedMethod.png)
+
+
+### <p id='wait_notify'>14. Wait. Notify</p>
+![18_WaitNotify_task1.0.png](18_WaitNotify_task1.0.png)
+Представим задачу, что у нас есть некий MessageBroker, который хранит в себе сообщения. Есть producer, который 
+эти сообщения жоставляет и есть consumer, который эти сообщения потребляет и удаляет те, которые он уже принял.
+Максимальное количество сообщений в брокере - 5
+
+Представим, как бы мы это реализовали:
+![18_WaitNotify_task1.1.png](18_WaitNotify_task1.1.png)
+
+Есть 2 потока, один записывает, другой считывает. В Брокере есть очередь с которой работают оба потока, и значит 
+мы будем синхронизировать работу с ней -> т.е. будем синхронизироваться по монитору объекта класса брокера.
+
+см. Runner_18_waitNotify.class
+
+При первом запуске в консоле мы видим:
+        
+    Message 'null' is consumed
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#1]' is produced
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#1]' is consumed
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#2]' is produced
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#2]' is consumed
+    ...
+
+Потребитель отработал раньше продюсера, поэтому певое сообщение null, а дальше все штатно.
+
+Какие мы тут видим проблемы:
+1. Если консьюмер будет работать интенсивнее продюсера, то мы будем в консьюмере получать много null
+   (реализуем подкинув в продюсер слипеер больше, чем в консьюмер)
+
+        Message 'null' is consumed
+        Message 'null' is consumed
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#1]' is produced
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#1]' is consumed
+        Message 'null' is consumed
+        Message 'null' is consumed
+
+2. Если продюсер будет работать интенсивнее, то мы переполним очередь, а у нас по условию должно быть
+   не более 5 сообщений (реализуем как с консьюмером)
+
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#1]' is produced
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#2]' is produced
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#1]' is consumed
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#3]' is produced
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#4]' is produced
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#5]' is produced
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#2]' is consumed
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#6]' is produced
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#7]' is produced
+        Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#8]' is produced
+
+Пробуем решать проблемы:
+Поставим условие проверять наличие сообщений и только тогда их читать:
+
+        public synchronized Message consume() {
+            while (messages.isEmpty()) {
+            }
+            return messages.poll();
+        }
+
+  Висим в бесконечном цикле, пока сообщения не появятся.
+  
+  Запуск приложения показал, что консоль пуста. Все потому, что монитор был захвачен консьюмером и он держит 
+  монитор объекта брокера, не давая продюсеру положить сообщение. Получили одну из разновидностей deadlocks.
+  
+  Тот же deadlock мы получим, если сделаем наоборот для продюсера. Поставим условие, чтоб он писал сообщения только 
+  тогда, когда сообщений меньше 5. Пяти продюсер захватит монитор, положит пять сообщений и будет держать монитор 
+  до тех пор, пока консьюмер не заберет хотя бы одно сообщение, но этого не произойдет
+  
+        public synchronized void produce(Message message) {
+        while (messages.size() >= maxStoredMessages) {}
+        messages.add(message);
+    }
+
+тогда в консоле поулчаем:
+
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#1]' is produced
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#2]' is produced
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#1]' is consumed
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#3]' is produced
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#4]' is produced
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#5]' is produced
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#2]' is consumed
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#6]' is produced
+    Message 'multithread.vzuev.lessons.run18_MessageBroker.model.Message[data = Message#7]' is produced
+
+    Видим, что консьюмер какое-то время успевал забирать сообщения, но вскоре продюсер увидел, что в 
+    очереди уже 5 сообщений и повис на своем while и держит монитор
+
+Решить мы это можем использую wait() и notify() которые:
+Консьмер провряет есть ли сообщения в очереди, если их нет, то он освобождает монитор (wait) - поток будто говорит, 
+что я тут сделал все что мог и перехоху в ожидание, но при этом я хочу разрешить других синхронизированных операций 
+по этому монитору. И только после выхова другим потоком метода notify наш поток может снова захватить монитор ожидаемого 
+объекта и попытаться продолжить работу. Т.е. Продюсер положит сообщение и вызовет у себя notify.
+
+wait() и notify() может вызываться ТОЛЬКО внутри sync методом и блоков иначе получим IllegalMonitorStateException
